@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Rkt_SbCache extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Rkt
+ * @package        Rkt_SbCache
+ * @author         Rajeev K Tomy <programmer.rkt@gmail.com>
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Rkt_SbCache>
+          <version>1.0.0</version>
+        </Rkt_SbCache>
+    </modules>
+    <global>
+        <models>
+            <rkt_sbcache>
+                <class>Rkt_SbCache_Model</class>
+            </rkt_sbcache>
+        </models>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <enable_cms_block_caching>
+                        <class>rkt_sbcache/observer</class>
+                        <method>enableCmsBlockCaching</method>
+                    </enable_cms_block_caching>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+    </global>
+</config>

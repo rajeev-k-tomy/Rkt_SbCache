@@ -1,0 +1,15 @@
+{
+    "name": "progammer-rkt/Rkt_SbCache",
+    "type": "magento-module",
+    "description": "Magento Extension that will allow to cache CMS Blocks aka Static Blocks",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rajeev K Tomy",
+            "email": "programmer.rkt@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
