@@ -29,6 +29,11 @@
                 <class>Rkt_SbCache_Model</class>
             </rkt_sbcache>
         </models>
+        <helpers>
+            <rkt_sbcache>
+                <class>Rkt_SbCache_Helper</class>
+            </rkt_sbcache>
+        </helpers>
         <events>
             <core_block_abstract_to_html_before>
                 <observers>

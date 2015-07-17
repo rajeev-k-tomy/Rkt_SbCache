@@ -35,6 +35,7 @@ class Rkt_SbCache_Model_Observer
 	 * By default, Magento is not applying cacheing for CMS blocks. This function
 	 * will apply cache for CMS Blocks and thus help us to overcome this difficulty.
 	 *
+	 * @access public
 	 * @param  Varien_Event_Observer       $observer
 	 * @return Rkt_SbCache_Model_Observer
 	 */
@@ -53,7 +54,8 @@ class Rkt_SbCache_Model_Observer
                 Mage_Cms_Model_Block::CACHE_TAG,
                 $block->getBlockId(),
                 Mage::app()->getStore()->getId(),
-                intval(Mage::app()->getStore()->isCurrentlySecure())
+                intval(Mage::app()->getStore()->isCurrentlySecure()),
+                Mage::helper('rkt_sbcache')->randomString()
             );
             $block->setCacheKey(implode('_', $cacheKeyData));
 
