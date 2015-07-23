@@ -55,7 +55,7 @@ class Rkt_SbCache_Model_Observer
                 $block->getBlockId(),
                 Mage::app()->getStore()->getId(),
                 intval(Mage::app()->getStore()->isCurrentlySecure()),
-                Mage::helper('rkt_sbcache')->randomString()
+                //Mage::helper('rkt_sbcache')->randomString() // UNCOMMENT IF IT IS NECESSARY
             );
             $block->setCacheKey(implode('_', $cacheKeyData));
 
