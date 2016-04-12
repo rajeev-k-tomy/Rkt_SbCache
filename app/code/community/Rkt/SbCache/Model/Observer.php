@@ -29,6 +29,7 @@
  */
 class Rkt_SbCache_Model_Observer
 {
+
 	/**
 	 * Use to apply cacheing for CMS Blocks in Magento.
 	 *
@@ -41,6 +42,10 @@ class Rkt_SbCache_Model_Observer
 	 */
 	public function enableCmsBlockCaching(Varien_Event_Observer $observer)
 	{
+        if (!$this->_getHelper()->isEnabled()){
+            return;
+        }
+
 		$block = $observer->getBlock();
 
 		//make sure cache is going to apply for a cms block.
@@ -70,13 +75,18 @@ class Rkt_SbCache_Model_Observer
 		    ));
 
 		    //setting cache life time to default. ie 7200 seconds(2 hrs).
-		    //Other options are
-		    //    - an integer value in seconds. eg : 86400 for one day cache
-		    //    - NULL for not applying any cache
-		    //    - 0 for never use cache (strongly discourage use of of zero)
-            $block->setCacheLifetime(false);
+		    //an integer value in seconds. eg : 86400 for one day cache
+            $block->setCacheLifetime($this->_getHelper()->getCacheTimeout());
         }
 
-        return $this;
 	}
+
+    /**
+     * @return Rkt_SbCache_Helper_Data
+     */
+    protected function _getHelper()
+    {
+        return Mage::helper('rkt_sbcache');
+    }
+
 }
