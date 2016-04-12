@@ -27,6 +27,11 @@
  */
 class Rkt_SbCache_Helper_Data extends Mage_Core_Helper_Abstract
 {
+	/**
+	 * Module configs
+	 */
+	const XML_PATH_RKT_CACHE_ENABLED = 'system/rkt_sbcache/enabled';
+ 	const XML_PATH_RKT_CACHE_TIMEOUT = 'system/rkt_sbcache/timeout';
 
 	/**
 	 * constants.
@@ -54,4 +59,21 @@ class Rkt_SbCache_Helper_Data extends Mage_Core_Helper_Abstract
 
 		return $randomString;
 	}
+
+	/**
+	 * @return bool
+	 */
+	public function isEnabled()
+	{
+		return Mage::getStoreConfig(self::XML_PATH_RKT_CACHE_ENABLED);
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getCacheTimeout()
+	{
+		return Mage::getStoreConfig(self::XML_PATH_RKT_CACHE_TIMEOUT);
+	}
+
 }

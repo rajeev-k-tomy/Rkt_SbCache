@@ -45,4 +45,12 @@
             </core_block_abstract_to_html_before>
         </events>
     </global>
+    <default>
+        <system>
+            <rkt_sbcache>
+                <enabled>1</enabled>
+                <timeout>7200</timeout>
+            </rkt_sbcache>
+        </system>
+    </default>
 </config>
